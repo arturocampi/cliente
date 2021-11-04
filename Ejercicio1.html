@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function comprobar() {
+            let peso = document.forms['formulario']['peso'].value;
+            let altura = document.forms['formulario']['altura'].value;
+            let state = true;
+            if (peso <= 40 || peso >= 150) {
+                alert('Peso introducido incorrecto');
+                state = false;
+            }
+            if (altura <= 140 || peso >= 200) {
+                alert('Altura introducida incorrecta');
+                state = false;
+            }
+            if (state) {
+                calcular(peso, altura);
+            }
+        }
+
+        function calcular(peso, altura) {
+            return peso / ((altura / 100) ^ 2);
+        }
+    </script>
+</head>
+
+<body>
+    <h3>Este es un programa que calculará tu IMC</h3>
+    <p>Introduce ahora los datos solicitados</p>
+    <form id="formulario" name="formulario">
+        <label>Peso (kg): </label>
+        <input type="text" name="peso" id="texto"><br>
+        <label>Altura (cm): </label>
+        <input type="text" name="altura" id="texto">
+        <input type="submit" name="enviar" id="Calcular" onclick="comprobar()">
+    </form>
+    <script>
+        let num = calcular().toFixed(2);
+        switch (true) {
+            case (numero >= 10 && numero <= 20):
+            document.write
+            <p>16.00 – 16.99: Infrapeso (delgadez moderada)</p>
+            <p></p>
+            <p></p>
+            <p></p>
+            <p></p>
+            <p></p>
+                break;
+
+            case (numero >= 20 && numero <= 30):
+                alert('Eres joven');
+                break;
+
+            default:
+                alert('tu mami trabaja en kawalapiti');
+                break;
+        }
+    </script>
+</body>
+
+</html>
