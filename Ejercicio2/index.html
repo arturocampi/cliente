@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="fcm.js"></script>
+    <style>
+        li{list-style-type:none}
+    </style>
+</head>
+
+<body>
+    <h3>Este es un programa que calculará tu IMC</h3>
+    <p>Introduce ahora los datos solicitados</p>
+    <form id="formulario" name="formulario">
+        <label>Edad </label><input type="text" name="edad" id="edad"><br>
+        <label>Sexo </label><input type="text" name="sexo" id="sexo"><br><br>
+        <input type="button" name="enviar" value="enviar" id="enviar" onclick="comprobar()">
+    </form>
+    <br>
+    <h3 id="answer"></h3>
+    <br>
+    <li id="1"></li>
+    <li id="2"></li>
+    <li id="3"></li>
+    <li id="4"></li>
+</body>
+
+</html>
