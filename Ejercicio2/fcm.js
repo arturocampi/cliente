@@ -1,17 +1,20 @@
 function comprobar() {
     let edad = document.forms['formulario']['edad'].value;
-    let edad = document.forms['formulario']['edad'].value;
-    let state = true;
-    if (edad < 15 || edad > 65) {
-        alert('Edad introducida incorrecta');
-        state = false;
+    let sexo = document.forms['formulario']['sexo'].value;
+    let stateEdad = false;
+    let stateSexo = false;
+    if (edad >= 15 && edad <= 65) {
+        stateEdad = true;
     }
-    if (sexo != 'mujer' || sexo != 'hombre') {
-        alert('Sexo introducido incorrecto');
-        state = false;
+    if (isNaN(sexo) && (sexo.toUpperCase() == 'MUJER' || sexo.toUpperCase() == 'HOMBRE')) {
+        stateSexo = true;
     }
-    if (state) {
+    if (stateEdad && stateSexo) {
         calcular(edad);
+    } else if (!stateSexo) {
+        alert('Sexo introducido incorrecto');
+    } else if (!stateEdad) {
+        alert('Edad introducida incorrecta');
     }
 }
 
@@ -28,7 +31,7 @@ function calcular(edad) {
     li3.textContent = `Zona anaeróbica (80%-90%): ${num * 0.8}-${num * 0.9}`;
 
     var li4 = document.getElementById(4);
-    li4.textContent = `Línea roja (90%-100%): ${num * 0.9}-${num * 1}`;
+    li4.textContent = `Línea roja (90%-100%): ${num * 0.9}-${num}`;
 
     var calculo = document.getElementById("answer");
     calculo.textContent = `Tu frecuencia máxima es de ${num} pulsaciones`;
