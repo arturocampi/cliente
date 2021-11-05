@@ -23,6 +23,11 @@ Además, indicará los siguientes valores:
 *	Línea roja (90%-100%).
 El programa también deberá comprobar que los valores de edad y sexo introducidos son correctos, en caso contrario deberá volver a solicitar los datos.
 
+1. El valor de sexo no afecta a los cálculos, la FCM será igual para hombre que para mujer.
+2. Una vez calculada la FCM, se calcularán los porcentajes indicados en cada fila:
+	Ejemplo: 
+	*	Zona de recuperación (60%-70%). 105-125
+
 
 ## 3.	(3 puntos) Horario del gimnasio (horario.js)
 Crea un programa que genere dos tablas html con los horarios de la asociación.
