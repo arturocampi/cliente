@@ -6,11 +6,39 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Caveat:wght@500&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Gluten:wght@100&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=GlutenBold:wght@900&display=swap');
+
+        li {
+            list-style-type: none
+        }
+
+        body {
+            background-image: linear-gradient(to right top, #051937, #004d7a, #008793, #00bf72, #a8eb12);            width: 1000px;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            margin: 5px auto;
+            text-align: center;
+            font-family: 'GlutenBold', cursive;
+            color: whitesmoke;
+            font-size: large;
+        }
+
+        h3 {
+            font-family: 'Caveat', cursive;
+            font-size: 50px;
+        }
+
+        p{font-weight: bold}
+    </style>
     <script>
         function comprobar() {
             let peso = document.forms['formulario']['peso'].value;
             let altura = document.forms['formulario']['altura'].value;
             let state = true;
+
             if (peso <= 40 || peso >= 150) {
                 alert('Peso introducido incorrecto');
                 state = false;
@@ -25,7 +53,46 @@
         }
 
         function calcular(peso, altura) {
-            return peso / ((altura / 100) ^ 2);
+            reset();
+            var num = (peso / ((altura / 100) ** 2)).toFixed(2);
+            switch (true) {
+                case (num < 16):
+                    document.getElementById(1).style.color = 'red';
+                    break;
+                case (num >= 16 && num <= 16.99):
+                    document.getElementById(2).style.color = 'red';
+                    break;
+                case (num >= 17 && num <= 18.49):
+                    document.getElementById(3).style.color = 'red';
+                    break;
+                case (num >= 18.5 && num <= 24.99):
+                    document.getElementById(4).style.color = 'red';
+                    break;
+                case (num >= 25 && num <= 29.99):
+                    document.getElementById(5).style.color = 'red';
+                    break;
+                case (num >= 30 && num <= 34.99):
+                    document.getElementById(6).style.color = 'red';
+                    break;
+                case (num >= 35 && num <= 40):
+                    document.getElementById(7).style.color = 'red';
+                    break;
+                case (num > 40):
+                    document.getElementById(8).style.color = 'red';
+                    break;
+                default:
+                    alert("Error");
+                    break;
+            }
+            var calculo = document.getElementById("answer");
+            calculo.textContent = `Tu IMC es de: ${num}`;
+        }
+
+        function reset() {
+            var list = document.getElementsByClassName('list');
+            for (let i = 0; i < list.length; i++) {
+                list[i].style.color = 'whitesmoke';
+            }
         }
     </script>
 </head>
@@ -34,34 +101,21 @@
     <h3>Este es un programa que calculará tu IMC</h3>
     <p>Introduce ahora los datos solicitados</p>
     <form id="formulario" name="formulario">
-        <label>Peso (kg): </label>
-        <input type="text" name="peso" id="texto"><br>
-        <label>Altura (cm): </label>
-        <input type="text" name="altura" id="texto">
-        <input type="submit" name="enviar" id="Calcular" onclick="comprobar()">
+        <label>Peso (kg): </label><input type="text" name="peso" id="peso"><br>
+        <label>Altura (cm): </label><input type="text" name="altura" id="altura"><br><br>
+        <input type="button" name="enviar" value="enviar" id="enviar" onclick="comprobar()">
     </form>
-    <script>
-        let num = calcular().toFixed(2);
-        switch (true) {
-            case (numero >= 10 && numero <= 20):
-            document.write
-            <p>16.00 – 16.99: Infrapeso (delgadez moderada)</p>
-            <p></p>
-            <p></p>
-            <p></p>
-            <p></p>
-            <p></p>
-                break;
-
-            case (numero >= 20 && numero <= 30):
-                alert('Eres joven');
-                break;
-
-            default:
-                alert('tu mami trabaja en kawalapiti');
-                break;
-        }
-    </script>
+    <br>
+    <li id="1" class="list">&lt;16.00: Infrapeso (delgadez severa)</li>
+    <li id="2" class="list">16.00 - 16.99: Infrapeso (delgadez moderada)</li>
+    <li id="3" class="list">17.00 - 18.49: Infrapeso (delgadez aceptable)</li>
+    <li id="4" class="list">18.50 - 24.99: Peso normal</li>
+    <li id="5" class="list">25.00 - 29.99: Sobrepeso</li>
+    <li id="6" class="list">30.00 - 34.99: Obeso (Tipo I)</li>
+    <li id="7" class="list">35.00 - 40.00: Obeso (Tipo II)</li>
+    <li id="8" class="list">&gt;40.00: Obeso (Tipo III)</li>
+    <br>
+    <h3 id="answer"></h3>
 </body>
 
 </html>
