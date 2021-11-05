@@ -11,7 +11,8 @@ Además de mostrar el resultado, mostrará la siguiente escala y marcará de alg
 *	25.00 - 29.99: Sobrepeso
 *	30.00 - 34.99: Obeso (Tipo I)
 *	35.00 - 40.00: Obeso (Tipo II)
-*	>40.00: Obeso (Tipo III)
+*	&gt;40.00: Obeso (Tipo III)
+
 La calculadora también comprobará que no se introduzca ningún valor incorrecto de peso ni altura, y en caso de que así sea, volverá a solicitar los datos.
 ## 2.	(1 punto) Calculadora de FCM –Frecuencia Cardiaca Máxima- (fcm.js)
 Crea un programa que solicite al usuario su edad y su sexo y devuelva la frecuencia cardiaca máxima por pantalla (en el cuerpo de la página).
@@ -26,9 +27,9 @@ El programa también deberá comprobar que los valores de edad y sexo introducid
 ## 3.	(3 puntos) Horario del gimnasio (horario.js)
 Crea un programa que genere dos tablas html con los horarios de la asociación.
 *	La primera tabla contendrá el horario de actividades dirigidas y mostrará las franjas horarias de una en una con el formato 9:00-11:00, desde las 7:00 hasta las 21:00 y los días del lunes al sábado.
-o	Por ejemplo, a partir de un array que contenga los nombres de varias actividades, el programa las distribuirá sobre la tabla, de forma que todas las actividades sean impartidas durante más de un día a la semana.
+*	Por ejemplo, a partir de un array que contenga los nombres de varias actividades, el programa las distribuirá sobre la tabla, de forma que todas las actividades sean impartidas durante más de un día a la semana.
 *	La segunda tabla mostrará el horario de sesiones de fisioterapeuta. Los períodos de tiempo serán de 45 minutos, desde las 10:00 a las 13:45 y desde las 17:00 hasta las 21:15 de lunes a viernes.
-o	Por ejemplo, a partir de un array que contenga los nombres de los fisioterapeutas, el programa distribuirá las sesiones a lo largo de la semana.
+*	Por ejemplo, a partir de un array que contenga los nombres de los fisioterapeutas, el programa distribuirá las sesiones a lo largo de la semana.
 ## 4.	(4 puntos) Filtrado por actividad/fisioterapeuta.
 Junto a las tablas de horarios existirá un listado con las actividades y fisioterapeutas. El usuario de la página web podrá seleccionar en nombre de una actividad o fisioterapeuta y las celdas correspondientes serán resaltadas en la tabla. En el caso de los fisioterapeutas solo podrá seleccionarse uno, en el caso de las actividades podrán seleccionarse varias.
 
