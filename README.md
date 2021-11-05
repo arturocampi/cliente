@@ -43,7 +43,7 @@ Crea un programa que solicite al usuario una contraseña y compruebe si es segur
 NOTA: puedes crear una función para cada comprobación. 		
 
 
-### CALIFICACIÓN
+## CALIFICACIÓN
 
 *	Entrega tanto el código en html como capturas de su correcto funcionamiento.
 *	El valor de esta práctica es de un 40% de la nota de prácticas de la evaluación.
