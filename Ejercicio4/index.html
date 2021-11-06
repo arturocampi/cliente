@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>horarios</title>
+</head>
+
+<body>
+    <script src="generate.js"></script>
+    <table id="tabla1" border="1">
+        <tr>
+            <th>ACTIVIDADES</th>
+            <th>Lunes</th>
+            <th>Martes</th>
+            <th>Miércoles</th>
+            <th>Jueves</th>
+            <th>Viernes</th>
+            <th>Sábado</th>
+        </tr>
+        <tr>
+            <td>07:00 - 09:00</td>
+        </tr>
+        <tr>
+            <td>09:00 - 11:00</td>
+        </tr>
+        <tr>
+            <td>11:00 - 13:00</td>
+        </tr>
+        <tr>
+            <td>13:00 - 15:00</td>
+        </tr>
+        <tr>
+            <td>15:00 - 17:00</td>
+        </tr>
+        <tr>
+            <td>17:00 - 19:00</td>
+        </tr>
+        <tr>
+            <td>19:00 - 21:00</td>
+        </tr>
+    </table>
+    <table id="tabla2" border="1">
+        <tr>
+            <th>FISIOS</th>
+            <th>Lunes</th>
+            <th>Martes</th>
+            <th>Miércoles</th>
+            <th>Jueves</th>
+            <th>Viernes</th>
+        </tr>
+        <tr>
+            <td>10:00 - 10:45</td>
+        </tr>
+        <tr>
+            <td>10:45 - 11:30</td>
+        </tr>
+        <tr>
+            <td>11:30 - 12:15</td>
+        </tr>
+        <tr>
+            <td>12:15 - 13:00</td>
+        </tr>
+        <tr>
+            <td>13:00 - 13:45</td>
+        </tr>
+        <tr>
+            <td>17:00 - 17:45</td>
+        </tr>
+        <tr>
+            <td>17:45 - 18:30</td>
+        </tr>
+        <tr>
+            <td>18:30 - 19:15</td>
+        </tr>
+        <tr>
+            <td>19:15 - 20:00</td>
+        </tr>
+        <tr>
+            <td>20:00 - 20:45</td>
+        </tr>
+    </table>
+    <form id="formulario" name="formulario">
+        <p><strong>Selecciona la sesión</strong></p>
+        <input type="checkbox" id="sesion1" name="sesion1" value="name">
+        <label for="sesion1">cardio</label><br>
+        <input type="checkbox" id="sesion2" name="sesion2" value="name">
+        <label for="sesion2">salsa</label><br>
+        <input type="checkbox" id="sesion3" name="sesion3" value="name">
+        <label for="sesion3">natacion</label><br>
+        <input type="checkbox" id="sesion4" name="sesion4" value="name">
+        <label for="sesion4">zumba</label><br>
+        <input type="checkbox" id="sesion5" name="sesion5" value="name">
+        <label for="sesion5">pilates</label><br>
+        <input type="checkbox" id="sesion6" name="sesion6" value="name">
+        <label for="sesion6">yoga</label><br>
+        <input type="checkbox" id="sesion7" name="sesion7" value="name">
+        <label for="sesion7">boxeo</label><br>
+        <input type="checkbox" id="sesion8" name="sesion8" value="name">
+        <label for="sesion8">bicicleta</label><br>
+        <input type="submit" value="marcar sesiones">
+    </form>
+
+    <form id="formulario" name="formulario">
+        <p><strong>Selecciona a un fisioterapeuta</strong></p>
+        <input type="radio" id="fisio1" name="name" value="name">
+        <label for="name1">Elsa Espada</label><br>
+        <input type="radio" id="fisio2" name="name" value="name">
+        <label for="name2">Nagore Campo</label><br>
+        <input type="radio" id="fisio3" name="name" value="name">
+        <label for="name3">Sergio Chavez</label><br>
+        <input type="radio" id="fisio4" name="name" value="name">
+        <label for="name4">Giovanni Souto</label><br>
+        <input type="radio" id="fisio5" name="name" value="name">
+        <label for="name5">Ahmed Villalba</label><br>
+        <input type="radio" id="fisio6" name="name" value="name">
+        <label for="name6">Casilda Espada</label><br>
+        <input type="submit" value="marcar fisioterapeuta">
+    </form>
+    <script>
+        var array = ['cardio', 'salsa', 'natacion', 'zumba', 'pilates', 'yoga', 'boxeo', 'bicicleta'];
+        generarActividades(array);
+        var array2 = ['Elsa Espada', 'Nagore Campo', 'Sergio Chavez', 'Giovanni Souto', 'Ahmed Villalba', 'Casilda Espada'];
+        generarFisioterapeutas(array2);
+    </script>
+</body>
+
+</html>
