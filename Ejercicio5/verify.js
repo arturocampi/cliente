@@ -72,12 +72,16 @@ function verifyPassword() {
     check(menor, mayor, vacia, minus, mayus, num, especial);
 }
 
+// ESTA FUNCIÓN RECIBE TODOS LOS BOOLEANOS
 function check(menor, mayor, vacia, minus, mayus, num, especial) {
+    // RECOGE LA FRASE QUE MUESTRA SI ES CORRECTO O NO
     var span = document.getElementById('correcto');
+    // EN CASO DE QUE TODOS LOS BOOLEANOS SEAN TRUE LA CONTRASEÑA ES CORRECTA
     if (menor && mayor && vacia && minus && mayus && num && especial) {
         span.style.color = 'lime';
         span.innerHTML = 'Contraseña Correcta!';
     } else {
+        // EN CASO CONTRARIO SI UN SOLO BOOLEANO ES FALSE LA CONTRASEÑA ES INCORRECTA
         span.style.color = 'red';
         span.innerHTML = 'Formato de contraseña incorrecta!';
     }

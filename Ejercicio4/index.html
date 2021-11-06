@@ -8,10 +8,20 @@
     <title>horarios</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=PT+Sans&display=swap');
-        body{
+
+        body {
             font-family: PT Sans;
             background-color: rgb(29, 30, 31);
             color: whitesmoke;
+        }
+
+        .display {
+            display: inline-block;
+        }
+
+        .reload {
+            margin-right: 45px;
+            margin-left: 45px;
         }
     </style>
 </head>
@@ -50,7 +60,11 @@
             <tr>
                 <td>19:00 - 21:00</td>
             </tr>
-        </table><br><br>
+        </table>
+        <p class="display">Recarga la página para mostrar otra tabla!</p>
+        <form class="display">
+            <input type="submit" value="recargar">
+        </form>
         <table id="tablaFisios" border="1">
             <tr>
                 <th>FISIOS</th>
@@ -91,8 +105,8 @@
                 <td>20:00 - 20:45</td>
             </tr>
         </table>
-
-        <form id="sesiones" name="sesiones">
+        <!-- CREAMOS UN FORMULARIO CON BOTONES DONDE PODEMOS SELECCIONAR LAS SESIONES QUE QUEREMOS RESALTAR -->
+        <form id="sesiones" name="sesiones" class="display reload">
             <p><strong>Selecciona la sesión</strong></p>
             <input type="checkbox" id="sesion1" name="sesion1" value="cardio">
             <label for="sesion1">cardio</label><br>
@@ -107,7 +121,8 @@
             <input type="button" value="marcar sesiones" onclick="checkSesiones()">
         </form>
 
-        <form id="fisios" name="fisios">
+        <!-- CREAMOS UN FORMULARIO CON BOTONES DONDE PODEMOS SELECCIONAR EL/LA FISIOTERAPEUTA QUE QUEREMOS RESALTAR -->
+        <form id="fisios" name="fisios" class="display reload">
             <p><strong>Selecciona a un fisioterapeuta</strong></p>
             <input type="radio" id="fisio1" name="name" value="Elsa Espada">
             <label for="fisio1">Elsa Espada</label><br>
@@ -124,8 +139,10 @@
     </center>
 
     <script>
+        // CREAMOS UN ARRAY DE ACTIVIDADES Y LUEGO LLAMAMOS A LA FUNCION PASANDOLE LA ARRAY COMO VARIABLE
         var sesiones = ['cardio', 'salsa', 'natacion', 'zumba', 'pilates'];
         generarActividades(sesiones);
+        // CREAMOS UN ARRAY DE FISIOTERAPEUTAS Y LUEGO LLAMAMOS A LA FUNCION PASANDOLE LA ARRAY COMO VARIABLE
         var fisios = ['Elsa Espada', 'Nagore Campo', 'Sergio Chavez', 'Giovanni Souto', 'Ahmed Villalba'];
         generarFisioterapeutas(fisios);
     </script>

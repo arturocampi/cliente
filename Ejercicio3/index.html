@@ -8,10 +8,16 @@
     <title>horarios</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=PT+Sans&display=swap');
-        body{
+
+        body {
             font-family: PT Sans;
             background-color: rgb(29, 30, 31);
             color: whitesmoke;
+        }
+
+        p,
+        form {
+            display: inline-block;
         }
     </style>
 </head>
@@ -52,6 +58,9 @@
             </tr>
         </table>
         <p>Recarga la página para mostrar otra tabla!</p>
+        <form>
+            <input type="submit" value="recargar">
+        </form>
         <table id="tablaFisios" border="1">
             <tr>
                 <th>FISIOS</th>
@@ -94,8 +103,10 @@
         </table>
     </center>
     <script>
+        // CREAMOS UN ARRAY DE ACTIVIDADES Y LUEGO LLAMAMOS A LA FUNCION PASANDOLE LA ARRAY COMO VARIABLE
         var sesiones = ['cardio', 'salsa', 'natacion', 'zumba', 'pilates'];
         generarActividades(sesiones);
+        // CREAMOS UN ARRAY DE FISIOTERAPEUTAS Y LUEGO LLAMAMOS A LA FUNCION PASANDOLE LA ARRAY COMO VARIABLE
         var fisios = ['Elsa Espada', 'Nagore Campo', 'Sergio Chavez', 'Giovanni Souto', 'Ahmed Villalba'];
         generarFisioterapeutas(fisios);
     </script>

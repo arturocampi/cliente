@@ -20,24 +20,29 @@
         }
     </style>
     <script>
+        // RECOGEMOS PRIMERO DEL FORMULARIO AMBOS VALORES
         function comprobar() {
             let peso = document.forms['formulario']['peso'].value;
             let altura = document.forms['formulario']['altura'].value;
 
+            // COMPROBAMOS SI EL PESO INTRODUCIDO ES CORRECTO, SI NO LO ES LO PEDIMOS DE NUEVO
             while (peso < 40 || peso > 110) {
                 peso = prompt('Peso introducido incorrecto, introduce tu peso');
             }
-
+            // COMPROBAMOS SI EL PESO INTRODUCIDO ES CORRECTO, SI NO LO ES LO PEDIMOS DE NUEVO
             while (altura < 140 || altura > 200) {
                 altura = prompt('Altura introducida incorrecta, introduce tu altura');
             }
 
+            // CALCULAMOS EL IMC DESPUÉS DE TENER AMBOS PARAMETROS CORRECTOS
             calcular(peso, altura);
         }
 
         function calcular(peso, altura) {
+            // LA FUNCION RESET, PONE EL COLOR DE LOS RESULTADOS POR DEFECTO PARA MOSTRAR EL NUEVO RESULTADO
             reset();
             var num = (peso / ((altura / 100) ** 2)).toFixed(2);
+            // DEPENDIENDO DEL RESULTADO INTRODUCIDO DAREMOS UN COLOR ROJO A LA LINEA ADECUADA
             switch (true) {
                 case (num < 16):
                     document.getElementById(1).style.color = 'red';
@@ -67,11 +72,13 @@
                     alert("Error");
                     break;
             }
+            // IMPRIMOS EL RESULTADO POR PANTALLA
             var calculo = document.getElementById("answer");
             calculo.textContent = `Tu IMC es de: ${num}`;
         }
 
         function reset() {
+            // LA FUNCION RESET, PONE EL COLOR DE LOS RESULTADOS POR DEFECTO PARA MOSTRAR EL NUEVO RESULTADO
             var list = document.getElementsByClassName('list');
             for (let i = 0; i < list.length; i++) {
                 list[i].style.color = 'whitesmoke';
