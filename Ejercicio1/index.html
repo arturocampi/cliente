@@ -7,6 +7,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>imc</title>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=PT+Sans&display=swap');
+
+        body {
+            font-family: PT Sans;
+            background-color: rgb(29, 30, 31);
+            color: whitesmoke;
+        }
+
         li {
             list-style-type: none
         }
@@ -15,19 +23,16 @@
         function comprobar() {
             let peso = document.forms['formulario']['peso'].value;
             let altura = document.forms['formulario']['altura'].value;
-            let state = true;
 
-            if (peso <= 40 || peso >= 150) {
-                alert('Peso introducido incorrecto');
-                state = false;
+            while (peso < 40 || peso > 110) {
+                peso = prompt('Peso introducido incorrecto, introduce tu peso');
             }
-            if (altura <= 140 || peso >= 200) {
-                alert('Altura introducida incorrecta');
-                state = false;
+
+            while (altura < 140 || altura > 200) {
+                altura = prompt('Altura introducida incorrecta, introduce tu altura');
             }
-            if (state) {
-                calcular(peso, altura);
-            }
+
+            calcular(peso, altura);
         }
 
         function calcular(peso, altura) {
@@ -69,7 +74,7 @@
         function reset() {
             var list = document.getElementsByClassName('list');
             for (let i = 0; i < list.length; i++) {
-                list[i].style.color = 'black';
+                list[i].style.color = 'whitesmoke';
             }
         }
     </script>

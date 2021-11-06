@@ -57,7 +57,7 @@ function markSesiones(sesion) {
     for (let i = 1; i <= 6; i++) {
         for (let j = 1; j <= filas1.length - 1; j++) {
             if (filas1[j].innerHTML == sesion.value) {
-                filas1[j].style.backgroundColor = "yellow";
+                filas1[j].style.backgroundColor = "green";
             }
         }
     }
@@ -68,7 +68,7 @@ function resetSesiones() {
     var filas2 = tabla2.getElementsByTagName('td');
     for (let i = 1; i <= 6; i++) {
         for (let j = 1; j <= filas2.length - 1; j++) {
-            filas2[j].style.backgroundColor = 'white';
+            filas2[j].style.backgroundColor = 'rgb(29, 30, 31)';
         }
     }
 }
@@ -112,7 +112,7 @@ function markFisio(fisio) {
     for (let i = 1; i <= 6; i++) {
         for (let j = 1; j <= row2.length - 1; j++) {
             if (row2[j].innerHTML == fisio.value) {
-                row2[j].style.backgroundColor = "yellow";
+                row2[j].style.backgroundColor = "green";
             }
         }
     }
@@ -123,7 +123,7 @@ function resetFisios() {
     var row2 = table2.getElementsByTagName('td');
     for (let i = 1; i <= 6; i++) {
         for (let j = 1; j <= row2.length - 1; j++) {
-            row2[j].style.backgroundColor = 'white';
+            row2[j].style.backgroundColor = 'rgb(29, 30, 31)';
         }
     }
 }

@@ -1,20 +1,31 @@
 function comprobar() {
     let edad = document.forms['formulario']['edad'].value;
     let sexo = document.forms['formulario']['sexo'].value;
+
     let stateEdad = false;
-    let stateSexo = false;
     if (edad >= 15 && edad <= 65) {
         stateEdad = true;
     }
+    while (!stateEdad) {
+        edad = prompt('Edad incorrecta, introduce tu edad');
+        if (edad >= 15 && edad <= 65) {
+            stateEdad = true;
+        }
+    }
+
+    let stateSexo = false;
     if (isNaN(sexo) && (sexo.toUpperCase() == 'MUJER' || sexo.toUpperCase() == 'HOMBRE')) {
         stateSexo = true;
     }
+    while (!stateSexo) {
+        sexo = prompt('Genero incorrecto, introduce tu genero');
+        if (isNaN(sexo) && (sexo.toUpperCase() == 'MUJER' || sexo.toUpperCase() == 'HOMBRE')) {
+            stateSexo = true;
+        }
+    }
+
     if (stateEdad && stateSexo) {
         calcular(edad);
-    } else if (!stateSexo) {
-        alert('Sexo introducido incorrecto');
-    } else if (!stateEdad) {
-        alert('Edad introducida incorrecta');
     }
 }
 
