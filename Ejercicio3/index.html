@@ -10,7 +10,7 @@
 
 <body>
     <script src="horario.js"></script>
-    <table id="tabla1" border="1">
+    <table id="tablaSesiones" border="1">
         <tr>
             <th>ACTIVIDADES</th>
             <th>Lunes</th>
@@ -41,8 +41,8 @@
         <tr>
             <td>19:00 - 21:00</td>
         </tr>
-    </table>
-    <table id="tabla2" border="1">
+    </table><br><br>
+    <table id="tablaFisios" border="1">
         <tr>
             <th>FISIOS</th>
             <th>Lunes</th>
@@ -83,10 +83,10 @@
         </tr>
     </table>
     <script>
-        var array = ['cardio', 'salsa', 'tai chi', 'defensa personal', 'capoeira', 'natacion', 'zumba', 'body pump', 'body combat', 'pilates', 'yoga', 'boxeo', 'bicicleta'];
-        generarActividades(array);
-        var array2 = ['Elsa Espada', 'Nagore Campo', 'Sergio Chavez', 'Giovanni Souto', 'Ahmed Villalba', 'Casilda Espada', 'Brian Cardona', 'Gaizka Luna', 'Gerardo Abad', 'Isaac Diaz', 'Mariona Kaur', 'Irina Barbero', 'Anibal Peinado', 'Moises Arteaga', 'Amaia Calatayud', 'Paz Parrilla', 'Hector Antunez'];
-        generarFisioterapeutas(array2);
+        var sesiones = ['cardio', 'salsa', 'natacion', 'zumba', 'pilates'];
+        generarActividades(sesiones);
+        var fisios = ['Elsa Espada', 'Nagore Campo', 'Sergio Chavez', 'Giovanni Souto', 'Ahmed Villalba'];
+        generarFisioterapeutas(fisios);
     </script>
 </body>
 

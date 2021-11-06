@@ -1,21 +1,19 @@
-function generarActividades(array) {
-    var tabla = document.getElementById('tabla1');
-    var filas = tabla.getElementsByTagName('tr');
+function generarActividades(sesiones) {
+    var tabla1 = document.getElementById('tablaSesiones');
+    var filas1 = tabla1.getElementsByTagName('tr');
     for (let i = 1; i <= 6; i++) {
-        for (let j = 1; j <= filas.length - 1; j++) {
-            filas[j].innerHTML += '<td>' + array[Math.floor(Math.random() * array.length)] + '</td>';
+        for (let j = 1; j <= filas1.length - 1; j++) {
+            filas1[j].innerHTML += '<td>' + sesiones[Math.floor(Math.random() * sesiones.length)] + '</td>';
         }
     }
 }
 
-function generarFisioterapeutas(array2) {
-    var tabla2 = document.getElementById('tabla2');
+function generarFisioterapeutas(fisios) {
+    var tabla2 = document.getElementById('tablaFisios');
     var filas2 = tabla2.getElementsByTagName('tr');
-    let random;
     for (let i = 1; i <= 5; i++) {
         for (let j = 1; j <= filas2.length - 1; j++) {
-            random = Math.random(array2.length);
-            filas2[j].innerHTML += "<td>" + array2[Math.floor(Math.random() * array2.length)] + "</td>";
+            filas2[j].innerHTML += "<td>" + fisios[Math.floor(Math.random() * fisios.length)] + "</td>";
         }
     }
 }

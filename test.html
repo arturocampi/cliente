@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>contraseña segura</title>
+    <script>
+        function verifyPassword() {
+            // RECOGE LA CONTRASEÑA
+            var password = document.getElementById('password').value;
+            // COMPRUEBA QUE TENGA UNA LONGITUD MAYOR A 8
+            if (password.length < 8) {
+                alert('Contraseña demasiado corta');
+            }
+            // COMPRUEBA QUE TENGA UNA LONGITUD MENOR A 16
+            if (password.length > 16) {
+                alert('Contrasea demasiado larga');
+            }
+            // COMPRUEBA QUE NO ESTE VACÍA
+            if (password == '') {
+                alert('La contraseña no puede estar vacía');
+            }
+            // BOOLEANO MAYÚSCULAS
+            let mayus = false;
+            // COMPRUEBA QUE TENGA UNA LETRA MAYÚSCULA
+            for (let i = 0; i < password.length; i++) {
+                if ((password.charAt(i) >= 'A' && password.charAt(i) <= 'Z')) {
+                    mayus = true;
+                }
+            }
+            if (!mayus) {
+                alert('La contraseña tiene que tener una letra mayúscula');
+            }
+
+            // BOOLEANO MINÚSCULAS
+            let minus = false;
+            // COMPRUEBA QUE TENGA UNA LETRA MINÚSCULA
+            for (let i = 0; i < password.length; i++) {
+                if ((password.charAt(i) >= 'a' && password.charAt(i) <= 'z')) {
+                    minus = true;
+                }
+            }
+            if (!minus) {
+                alert('La contraseña tiene que tener una letra minúscula');
+            }
+
+            // BOOLEANO NÚMERO
+            let num = false;
+            // COMPRUEBA QUE TENGA UN NÚMERO
+            for (let i = 0; i < password.length; i++) {
+                if ((password.charAt(i) >= '0' && password.charAt(i) <= '9')) {
+                    num = true;
+                }
+            }
+            if (!num) {
+                alert('La contraseña tiene que tener un número');
+            }
+        }
+    </script>
+
+<body>
+    <!-- Que tiene entre 8 y 16 caracteres. DONE
+        Que tiene una letra mayúscula. DONE
+        Que tiene una letra minúscula. DONE
+        Que tiene un número. DONE
+        Que tiene uno de los siguientes caracteres: guión alto, guión bajo, arroba, almohadilla, dólar, tanto por ciento o ampersand. NOTA: puedes crear una función para cada comprobación. -->
+    <h3>Introduce la contraseña</h3>
+    <form>
+        <input type="text" id="password" value="">
+        <span id="error" style="color:red"> </span> <br><br>
+        <input type="button" value="enviar" onclick="verifyPassword()">
+        <input type="reset" value="borrar">
+    </form>
+</body>
+
+</html>
