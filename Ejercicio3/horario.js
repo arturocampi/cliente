@@ -4,9 +4,9 @@ function generarActividades(sesiones) {
     var sesion = document.getElementById('tablaSesiones');
     // RECOGE LAS FILAS DE LA TABLA
     var filas1 = sesion.getElementsByTagName('tr');
-    // CONTROLA LAS FILAS
+    // CONTROLA LAS COLUMNAS
     for (let i = 1; i <= 6; i++) {
-        // CONTROLA LAS COLUMNAS
+        // CONTROLA LAS FILAS
         for (let j = 1; j <= filas1.length - 1; j++) {
             // IMPRIME DE FORMA ALEATORIA UNA ACTIVIDAD EN LA TABLA
             filas1[j].innerHTML += '<td>' + sesiones[Math.floor(Math.random() * sesiones.length)] + '</td>';
@@ -20,9 +20,9 @@ function generarFisioterapeutas(fisios) {
     var fisio = document.getElementById('tablaFisios');
     // RECOGE LAS FILAS DE LA TABLA
     var filas2 = fisio.getElementsByTagName('tr');
-    // CONTROLA LAS FILAS
+    // CONTROLA LAS COLUMNAS
     for (let i = 1; i <= 5; i++) {
-        // CONTROLA LAS COLUMNAS
+        // CONTROLA LAS FILAS
         for (let j = 1; j <= filas2.length - 1; j++) {
             // IMPRIME DE FORMA ALEATORIA UN FISIOTERAPEUTA EN LA TABLA
             filas2[j].innerHTML += "<td>" + fisios[Math.floor(Math.random() * fisios.length)] + "</td>";
