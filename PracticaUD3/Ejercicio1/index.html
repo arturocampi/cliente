@@ -1,16 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script type="text/javascript" src="class.js"></script>
 </head>
+
 <body>
     <center>
+        <!-- FORMULARIO PARA AÑADIR COLEGIOS -->
         <form id="colegio" name="colegio">
-            
+            <label>Nombre del colegio</label>
+            <input type="text" id="nombre" name="nombre"><br>
+            <label>Número de aulas</label>
+            <input type="number" id="numAulas" name="numAulas"><br>
+            <label>Número de Alumnos</label>
+            <input type="number" id="numAlumnos" name="numAlumnos"><br>
+            <input type="button" value="Enviar" onclick="addColegio()">
         </form>
+        <!-- FORMULARIO PARA AÑADIR ALUMNOS -->
+        <form id="alumno" name="alumno">
+            <label>Nombre del alumno</label>
+            <input type="text" id="nombre" name="nombre"><br>
+            <label>DNI</label>
+            <input type="text" id="dni" name="dni"><br>
+            <label>Nota media</label>
+            <input type="text" id="notaMedia" name="notaMedia"><br>
+            <input type="button" value="Enviar" onclick="">
+        </form>
+        <table border=1>
+            <tr>
+                <th>Nombre Colegio</th>
+                <th>Número Aulas</th>
+                <th>Número Alumnos</th>
+            </tr>
+        </table>
     </center>
 </body>
+
 </html>
