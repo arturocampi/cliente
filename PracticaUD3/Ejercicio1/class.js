@@ -12,23 +12,20 @@ function Alumno(nombre, dni, notaMedia) {
     //método para modificar la nota media
 }
 
-function addColegio() {
+function crearColegio() {
     let nombre = document.forms['colegio']['nombre'].value;
     let numAulas = document.forms['colegio']['numAulas'].value;
     let numAlumnos = document.forms['colegio']['numAlumnos'].value;
-    // var colegio1 = new Colegio(nombre, numAulas, numAlumnos);
-    // alert(colegio1.toString());
-    
+    var colegio = new Colegio(nombre, numAulas, numAlumnos);
+    // let colegios = [];
+    // let colegios = colegios.push(colegio);
+    addColegio(colegio);
+}
+
+function addColegio(colegio) {
+    // let colegioTabla = colegios[colegios.length];
     var tabla = document.getElementById('tableColegios');
-    var filas = tabla.getElementsByTagName('tr');
-    for (let i = 1; i <= 6; i++) {
-        // CONTROLA LAS FILAS
-        for (let j = 1; j <= filas.length - 1; j++) {
-            // IMPRIME DE FORMA ALEATORIA UNA ACTIVIDAD EN LA TABLA
-            filas1[j].innerHTML += '<td>' + sesiones[Math.floor(Math.random() * sesiones.length)] + '</td>';
-        }
-    }
-    // filas.innerHTML += '<th>' + nombre + '</th>' + '<th>' + numAulas + '</th>' + '<th>' + numAlumnos + '</th>';
+    tabla.innerHTML += '<tr><td>' + colegio.nombre + '</td><td>' + colegio.numAulas + '</td><td>' + colegio.numAlumnos + '</td></tr>';
 }
 
 Colegio.prototype.toString = function colegioToString() {
