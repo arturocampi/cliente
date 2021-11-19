@@ -17,8 +17,7 @@ function crearColegio() {
     let numAulas = document.forms['colegio']['numAulas'].value;
     let numAlumnos = document.forms['colegio']['numAlumnos'].value;
     var colegio = new Colegio(nombre, numAulas, numAlumnos);
-    // let colegios = [];
-    // let colegios = colegios.push(colegio);
+    colegios.push(colegio);
     addColegio(colegio);
 }
 
