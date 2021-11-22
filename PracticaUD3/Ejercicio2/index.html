@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript" src="aerolinea.js"></script>
+</head>
+
+<body>
+    <center>
+        <h1>Controladora de vuelos</h1>
+        <!-- FORMULARIO PARA AÑADIR AEROPUERTOS -->
+        <form name="formAeropuerto" id="formAeropuerto">
+            <label>Nombre</label>
+            <input type="text" name="nombre"><br>
+            <label>Ciudad</label>
+            <input type="text" name="ciudad"><br>
+            <label>Número de vuelos</label>
+            <input type="number" name="numVuelos"><br>
+            <input type="button" value="añadir aeropuerto" onclick="validateAeropuerto()">
+        </form>
+        <!-- TABLA PARA LOS AEROPUERTOS -->
+        <table border=1 id="tableAeropuerto">
+            <tr>
+                <th>Nombre</th>
+                <th>Ciudad</th>
+                <th>Número de vuelos</th>
+                <th>Cambiar número de vuelos</th>
+            </tr>
+        </table>
+        <br>
+        <!-- FORMULARIO PARA AÑADIR VUELOS -->
+        <form name="formVuelo" id="formVuelo">
+            <label>Código de vuelo</label>
+            <input type="text" name="codigo"><br>
+            <label>Hora de llegada</label>
+            <input type="text" name="horaLlegada"><br>
+            <label>Minutos de llegada</label>
+            <input type="text" name="minLlegada"><br>
+            <label>Hora de salida</label>
+            <input type="text" name="horaSalida"><br>
+            <label>Minutos de salida</label>
+            <input type="text" name="minSalida"><br>
+            <input type="button" value="añadir vuelo" onclick="validateVuelo()">
+        </form>
+        <!-- TABLA PARA LOS VUELOS -->
+        <table border=1 id="tableVuelo">
+            <tr>
+                <th>Código</th>
+                <th>Hora de llegada</th>
+                <th>Hora de salida</th>
+                <th>Cambiar hora de llegada</th>
+                <th>Cambiar hora de salida</th>
+            </tr>
+        </table>
+    </center>
+</body>
+
+</html>

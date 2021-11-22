@@ -39,9 +39,7 @@ function comprobarColegio() {
 
 function addColegio(colegio) {
     var tabla = document.getElementById('tableColegios');
-    var filaColegio = document.createElement('tr');
     var cadenaBoton = "<input type='button' value ='Variar Alumnos' id='boton' onclick='modificar(this)'>";
-    filaColegio.innerHTML += "<td>" + colegio.nombre + "</td>";
     tabla.innerHTML += '<tr><td>' + colegio.nombre + '</td><td>' + colegio.numAulas + '</td><td>' + colegio.numAlumnos + '</td><td>' + cadenaBoton + '</td></tr>';
 }
 

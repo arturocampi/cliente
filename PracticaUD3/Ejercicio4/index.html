@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,7 +8,26 @@
     <title>Document</title>
     <script src="gestion.js" type="text/javascript"></script>
 </head>
+
 <body>
-    
+    <h1>Monitores</h1>
+    <form name="formulario" id="formulario">
+        <label>Nombre</label>
+        <input type="text" name="nombre"><br>
+        <label>DNI</label>
+        <input type="text" name="dni"><br>
+        <label>Telefono</label>
+        <input type="text" name="telefono"><br>
+        <label>Actividades realizadas</label>
+        <input type="number" name="actividades"><br>
+        <label>Sesiones en la semana</label>
+        <input type="number" name="sesionesSemana"><br>
+        <label>Sesiones dadas en sala</label>
+        <input type="number" name="sesionesSala"><br>
+        <input type='button' value='Mostrar Empleado' onclick='validateMonitor()'>
+    </form>
+    <ul id='list' style="list-style-type: none">
+    </ul>
 </body>
+
 </html>
