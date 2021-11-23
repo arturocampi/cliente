@@ -64,7 +64,7 @@ function mod(Vuelo) {
     let hora = prompt('Introduce hora');
     let min = prompt('Introduce minutos');
     Vuelo.setLlegada(hora, min);
-}
+}git 
 
 function validateVuelo() {
     let codigo = document.forms['formVuelo']['codigo'].value;
