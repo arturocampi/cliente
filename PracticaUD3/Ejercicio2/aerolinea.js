@@ -29,6 +29,8 @@ class Vuelo {
     }
 }
 
+var vuelos = [];
+
 function addAeropuerto(nombre, ciudad, numVuelos) {
     var aeropuerto = new Aeropuerto(nombre, ciudad, numVuelos);
     var table = document.getElementById('tableAeropuerto');
@@ -52,20 +54,6 @@ function validateAeropuerto() {
     addAeropuerto(nombre, ciudad, numVuelos);
 }
 
-function addVuelo(codigo, horaLlegada, minLlegada, horaSalida, minSalida) {
-    var vuelo = new Vuelo(codigo, horaLlegada, minLlegada, horaSalida, minSalida);
-    var table = document.getElementById('tableVuelo');
-    var horaLlegada = "<input type='button' value ='Modificar hora de llegada' id='boton' onclick='mod(this.vuelo)'>";
-    var horaSalida = "<input type='button' value ='Modificar hora de salida' id='boton' onclick='modSalida(this)'>";
-    table.innerHTML += '<tr><td>' + vuelo.codigo + '</td><td>' + vuelo.llegada + '</td><td>' + vuelo.salida + '</td><td>' + horaLlegada + '</td><td>' + horaSalida + '</td></tr>';
-}
-
-function mod(Vuelo) {
-    let hora = prompt('Introduce hora');
-    let min = prompt('Introduce minutos');
-    Vuelo.setLlegada(hora, min);
-}git 
-
 function validateVuelo() {
     let codigo = document.forms['formVuelo']['codigo'].value;
     let horaLlegada = document.forms['formVuelo']['horaLlegada'].value;
@@ -73,6 +61,27 @@ function validateVuelo() {
     let horaSalida = document.forms['formVuelo']['horaSalida'].value;
     let minSalida = document.forms['formVuelo']['minSalida'].value;
     addVuelo(codigo, horaLlegada, minLlegada, horaSalida, minSalida);
+}
+
+function addVuelo(codigo, horaLlegada, minLlegada, horaSalida, minSalida) {
+    var vuelo = new Vuelo(codigo, horaLlegada, minLlegada, horaSalida, minSalida);
+    vuelos.push(vuelo);
+    printVuelo(vuelos);
+}
+
+function printVuelo(vuelos) {
+    var table = document.getElementById('tableVuelo');
+    for (let i = 0; i < vuelos.length; i++) {
+        var horaLlegada = "<input type='button' value ='Modificar hora de llegada' id='boton' onclick='mod(this.vuelo)'>";
+        var horaSalida = "<input type='button' value ='Modificar hora de salida' id='boton' onclick='modSalida(this)'>";
+        table.innerHTML += '<tr><td>' + vuelos[i].codigo + '</td><td>' + vuelos[i].llegada + '</td><td>' + vuelos[i].salida + '</td><td>' + horaLlegada + '</td><td>' + horaSalida + '</td></tr>';
+    }
+}
+
+function mod(Vuelo) {
+    let hora = prompt('Introduce hora');
+    let min = prompt('Introduce minutos');
+    Vuelo.setLlegada(hora, min);
 }
 
 function modificar(numero) {
