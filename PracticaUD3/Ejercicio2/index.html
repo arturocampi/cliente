@@ -6,7 +6,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <script type="text/javascript" src="aerolinea.js"></script>
+    <script type="text/javascript" src="index.js"></script>
+    <style>
+        * {
+            margin: 5px
+        }
+    </style>
 </head>
 
 <body>
@@ -37,13 +42,13 @@
             <label>Código de vuelo</label>
             <input type="text" name="codigo"><br>
             <label>Hora de llegada</label>
-            <input type="text" name="horaLlegada"><br>
+            <input type="number" name="horaLlegada"><br>
             <label>Minutos de llegada</label>
-            <input type="text" name="minLlegada"><br>
+            <input type="number" name="minLlegada"><br>
             <label>Hora de salida</label>
-            <input type="text" name="horaSalida"><br>
+            <input type="number" name="horaSalida"><br>
             <label>Minutos de salida</label>
-            <input type="text" name="minSalida"><br>
+            <input type="number" name="minSalida"><br>
             <input type="button" value="añadir vuelo" onclick="addVuelo()">
         </form>
         <!-- TABLA PARA LOS VUELOS -->

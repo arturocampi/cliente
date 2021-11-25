@@ -27,7 +27,6 @@ class Vuelo {
     this.llegada.setHours(horaLlegada);
     this.llegada.setMinutes(minLlegada);
   }
-
   setSalida(horaSalida, minSalida) {
     this.salida.setHours(horaSalida);
     this.salida.setMinutes(minSalida);
@@ -44,21 +43,10 @@ var vuelos = [];
 
 function printAeropuerto() {
   var table = document.getElementById("tableAeropuerto");
-  table.innerHTML =
-    "<tr><th>Nombre</th><th>Ciudad</th><th>Número de vuelos</th><th>Cambiar número de vuelos</th><tr>";
+  table.innerHTML = "<tr><th>Nombre</th><th>Ciudad</th><th>Número de vuelos</th><th>Cambiar número de vuelos</th><tr>";
   for (let i = 0; i < aeropuertos.length; i++) {
-    var cadenaBoton =
-      "<input type='button' value ='Modificar vuelos' id='boton' onclick='modVuelos(this)'>";
-    table.innerHTML +=
-      "<tr><td>" +
-      aeropuertos[i].nombre +
-      "</td><td>" +
-      aeropuertos[i].ciudad +
-      "</td><td>" +
-      aeropuertos[i].numVuelos +
-      "</td><td>" +
-      cadenaBoton +
-      "</td></tr>";
+    var cadenaBoton = "<input type='button' value ='Modificar vuelos' id='boton' onclick='modVuelos(this)'>";
+    table.innerHTML += "<tr><td>" + aeropuertos[i].nombre + "</td><td>" + aeropuertos[i].ciudad + "</td><td>" + aeropuertos[i].numVuelos + "</td><td>" + cadenaBoton + "</td></tr>";
   }
 }
 
@@ -66,29 +54,31 @@ function addAeropuerto() {
   let nombre = document.forms["formAeropuerto"]["nombre"].value;
   let ciudad = document.forms["formAeropuerto"]["ciudad"].value;
   let numVuelos = document.forms["formAeropuerto"]["numVuelos"].value;
-  while (nombre == "") {
-    nombre = prompt("Nombre vacío!");
+  let empty = true;
+  let nombreBoolean = true;
+  let ciudadBoolean = true;
+  let numVuelosBoolean = true;
+  if (nombre == "" || ciudad == "" || numVuelos == "") {
+    empty = false;
+    alert("Algún campo está vacío!!");
   }
-  while (ciudad == "") {
-    ciudad = prompt("Ciudad vacía!");
+  if (!isNaN(nombre)) {
+    nombreBoolean = false;
+    alert("Nombre incorrecto");
   }
-  while (numVuelos == "") {
-    numVuelos = prompt("Número de vuelos vacío!");
+  if (!isNaN(ciudad)) {
+    ciudadBoolean = false;
+    alert("Ciudad incorrecta");
   }
-  while (!isNaN(nombre)) {
-    nombre = prompt("Nombre incorrecto, introduce un nombre");
+  if (isNaN(numVuelos)) {
+    numVuelosBoolean = false;
+    alert("Número de vuelos incorrecto");
   }
-  while (!isNaN(ciudad)) {
-    ciudad = prompt("Ciudad incorrecta, introduce una ciudad");
+  if (empty && nombreBoolean && ciudadBoolean && numVuelosBoolean) {
+    var aeropuerto = new Aeropuerto(nombre, ciudad, numVuelos);
+    aeropuertos.push(aeropuerto);
+    printAeropuerto();
   }
-  while (isNaN(numVuelos)) {
-    numVuelos = prompt(
-      "Número de vuelos incorrecto, introduce un número de vuelos"
-    );
-  }
-  var aeropuerto = new Aeropuerto(nombre, ciudad, numVuelos);
-  aeropuertos.push(aeropuerto);
-  printAeropuerto();
 }
 
 function addVuelo() {
@@ -98,19 +88,18 @@ function addVuelo() {
   let horaSalida = document.forms["formVuelo"]["horaSalida"].value;
   let minSalida = document.forms["formVuelo"]["minSalida"].value;
   var vuelo = new Vuelo(codigo, horaLlegada, minLlegada, horaSalida, minSalida);
-  let state1 = true;
-  let state2 = true;
-  if (codigo == "" || horaLlegada == "" || minLlegada == "" || horaSalida == "" || minSalida) {
-    state1 = false;
+  let empty = true;
+  let greater = true;
+  if (codigo == "" || horaLlegada == "" || minLlegada == "" || horaSalida == "" || minSalida == "") {
+    empty = false;
     alert("Algún campo está vacío!!");
   }
   if (vuelo.getLlegada() > vuelo.getSalida()) {
-    state2 = false;
-    alert("La hora de llegada es mayor a la hora de salida");
+    greater = false;
+    alert("Error, la hora de llegada es mayor a la hora de salida");
   }
-  if (state1 && state2) {
-    var vuelo = new Vuelo(
-      codigo, horaLlegada, minLlegada, horaSalida, minSalida);
+  if (empty && greater) {
+    var vuelo = new Vuelo(codigo, horaLlegada, minLlegada, horaSalida, minSalida);
     vuelos.push(vuelo);
     printVuelo();
   }
@@ -118,23 +107,11 @@ function addVuelo() {
 
 function printVuelo() {
   var table = document.getElementById("tableVuelo");
-  table.innerHTML =
-    "<tr><th>Código</th><th>Hora de llegada</th><th>Hora de salida</th><th>Cambiar hora de llegada</th><th>Cambiar hora de salida</th></tr>";
+  table.innerHTML = "<tr><th>Código</th><th>Hora de llegada</th><th>Hora de salida</th><th>Cambiar hora de llegada</th><th>Cambiar hora de salida</th></tr>";
   for (let i = 0; i < vuelos.length; i++) {
-    var horaLlegada ="<input type='button' value ='Modificar hora de llegada' id='boton' onclick='modLlegada(this)'>";
-    var horaSalida ="<input type='button' value ='Modificar hora de salida' id='boton' onclick='modSalida(this)'>";
-    table.innerHTML +=
-      "<tr><td>" +
-      vuelos[i].codigo +
-      "</td><td>" +
-      vuelos[i].llegada +
-      "</td><td>" +
-      vuelos[i].salida +
-      "</td><td>" +
-      horaLlegada +
-      "</td><td>" +
-      horaSalida +
-      "</td></tr>";
+    var horaLlegada = "<input type='button' value ='Modificar hora de llegada' id='boton' onclick='modLlegada(this)'>";
+    var horaSalida = "<input type='button' value ='Modificar hora de salida' id='boton' onclick='modSalida(this)'>";
+    table.innerHTML += "<tr><td>" + vuelos[i].codigo + "</td><td>" + vuelos[i].llegada + "</td><td>" + vuelos[i].salida + "</td><td>" + horaLlegada + "</td><td>" + horaSalida + "</td></tr>";
   }
 }
 
@@ -147,9 +124,13 @@ function modLlegada(codigo) {
   for (let i = 0; i < vuelos.length; i++) {
     if (vuelos[i].codigo == codigoVuelo) {
       vuelos[i].setLlegada(hora, min);
+      if (vuelos[i].llegada > vuelos[i].salida) {
+        alert("Error, la hora de llegada es mayor a la hora de salida");
+      } else {
+        printVuelo();
+      }
     }
   }
-  printVuelo();
 }
 
 function modSalida(codigo) {
@@ -166,14 +147,14 @@ function modSalida(codigo) {
   printVuelo();
 }
 
-function modVuelos(numero) {
+function modVuelos(boton) {
   let num = prompt("Introduce el número de vuelos");
   while (isNaN(num)) {
     num = prompt("Número de vuelos incorreto, introduce un número de vuelos");
   }
-  var numeroActual = numero.parentNode.previousSibling.textContent;
+  var nombre = boton.parentNode.previousSibling.previousSibling.previousSibling.textContent;
   for (let i = 0; i < aeropuertos.length; i++) {
-    if (aeropuertos[i].numVuelos == numeroActual) {
+    if (aeropuertos[i].nombre == nombre) {
       aeropuertos[i].setNumVuelos(num);
     }
   }
