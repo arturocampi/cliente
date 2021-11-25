@@ -7,7 +7,9 @@ class Empleado {
     }
 }
 
-// CLASDE MONITOR QUE EXTENDIENDE DE EMPLEADO
+var empleados = [];
+
+// CLASE MONITOR QUE EXTENDIENDE DE EMPLEADO
 class Monitor extends Empleado {
     constructor(nombre, dni, telefono, actividades, sesionesSemana, sesionesSala) {
         super(nombre, dni, telefono);
@@ -17,21 +19,60 @@ class Monitor extends Empleado {
     }
 }
 
+var monitores = [];
+
+// FUNCION QUE VALIDA LOS CAMPOS 
+function validateEmpleado() {
+    // PARAMETROS MONITOR
+    let nombre = document.forms['empleado']['nombre'].value;
+    let dni = document.forms['empleado']['dni'].value;
+    let telefono = document.forms['empleado']['telefono'].value;
+    // EXPRESIONES REGULARES
+    let reNombre = /^[a-zA-Z]+$/;
+    let reDNI = /^[0-9]{8}[a-zA-Z]$/;
+    let reTel = /^[0-9]{9}$/;
+    // COMPROBACION DE LOS CAMPOS 
+    while (!reNombre.test(nombre)) {
+        nombre = prompt('Nombre incorrecto, introduce un nombre');
+    }
+    while (!reDNI.test(dni)) {
+        dni = prompt('Dni incorrecto, introduce un dni');
+    }
+    while (!reTel.test(telefono)) {
+        telefono = prompt('Telefono incorrecto, introduce un telefono');
+    }
+    addEmpleado(nombre, dni, telefono);
+}
+
+function addEmpleado(nombre, dni, telefono) {
+    var empleado = new Empleado(nombre, dni, telefono);
+    empleados.push(empleado);
+}
+
+function printEmpleado() {
+    let tablaEmpleado = document.getElementById('empleados');
+    tablaEmpleado.innerHTML = '';
+    for (let i = 0; i < empleados.length; i++) {
+        tablaEmpleado.innerHTML += '<li><strong>Nombre: </strong>' + empleados[i].nombre + '</li><li><strong>DNI: </strong>' + empleados[i].dni + '</li><li><strong>Telefono: </strong>' + empleados[i].telefono + '</li>';
+    }
+}
+
 // FUNCION QUE AÑADE AL MONITOR, COMPROBANDO PRIMERO LOS CAMPOS
 function addMonitor(nombre, dni, telefono, actividades, sesionesSemana, sesionesSala) {
     var monitor = new Monitor(nombre, dni, telefono, actividades, sesionesSemana, sesionesSala);
-    monitor.toString();
+    monitores.push(monitor);
+    // monitor.toString();
 }
 
 // FUNCION QUE VALIDA LOS CAMPOS 
 function validateMonitor() {
     // PARAMETROS MONITOR
-    let nombre = document.forms['formulario']['nombre'].value;
-    let dni = document.forms['formulario']['dni'].value;
-    let telefono = document.forms['formulario']['telefono'].value;
-    let actividades = document.forms['formulario']['actividades'].value;
-    let sesionesSemana = document.forms['formulario']['sesionesSemana'].value;
-    let sesionesSala = document.forms['formulario']['sesionesSala'].value;
+    let nombre = document.forms['monitor']['nombre'].value;
+    let dni = document.forms['monitor']['dni'].value;
+    let telefono = document.forms['monitor']['telefono'].value;
+    let actividades = document.forms['monitor']['actividades'].value;
+    let sesionesSemana = document.forms['monitor']['sesionesSemana'].value;
+    let sesionesSala = document.forms['monitor']['sesionesSala'].value;
     // EXPRESIONES REGULARES
     let reNombre = /^[a-zA-Z]+$/;
     let reDNI = /^[0-9]{8}[a-zA-Z]$/;
@@ -56,6 +97,14 @@ function validateMonitor() {
         sesionesSala = prompt('Sesiones en sala incorrectas, introduce las sesiones en sala');
     }
     addMonitor(nombre, dni, telefono, actividades, sesionesSemana, sesionesSala);
+}
+
+function printMonitor() {
+    let tablaMonitor = document.getElementById('monitores');
+    tablaMonitor.innerHTML = '';
+    for (let i = 0; i < monitores.length; i++) {
+        tablaMonitor.innerHTML += '<li><strong>Nombre: </strong>' + monitores[i].nombre + '</li><li><strong>DNI: </strong>' + monitores[i].dni + '</li><li><strong>Telefono: </strong>' + monitores[i].telefono + '</li><li><strong>Actividades: </strong>' + monitores[i].actividades + '</li><li><strong>Sesiones Semanales: </strong>' + monitores[i].sesionesSemana + '</li><li><strong>Sesiones en sala: </strong>' + monitores[i].sesionesSala + '</li><br>';
+    }
 }
 
 // MÉTODO TOSTRING
