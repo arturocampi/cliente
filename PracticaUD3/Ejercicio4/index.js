@@ -28,7 +28,7 @@ function validateEmpleado() {
     let dni = document.forms['empleado']['dni'].value;
     let telefono = document.forms['empleado']['telefono'].value;
     // EXPRESIONES REGULARES
-    let reNombre = /^[a-zA-Z]+$/;
+    let reNombre = /(?![\s.]+$)[a-zA-Z\s.]*/;
     let reDNI = /^[0-9]{8}[a-zA-Z]$/;
     let reTel = /^[0-9]{9}$/;
     // COMPROBACION DE LOS CAMPOS 
@@ -47,13 +47,14 @@ function validateEmpleado() {
 function addEmpleado(nombre, dni, telefono) {
     var empleado = new Empleado(nombre, dni, telefono);
     empleados.push(empleado);
+    alert('Has añadido un empleado!');
 }
 
 function printEmpleado() {
     let tablaEmpleado = document.getElementById('empleados');
     tablaEmpleado.innerHTML = '';
     for (let i = 0; i < empleados.length; i++) {
-        tablaEmpleado.innerHTML += '<li><strong>Nombre: </strong>' + empleados[i].nombre + '</li><li><strong>DNI: </strong>' + empleados[i].dni + '</li><li><strong>Telefono: </strong>' + empleados[i].telefono + '</li>';
+        tablaEmpleado.innerHTML += '<li><strong>Nombre: </strong>' + empleados[i].nombre + '</li><li><strong>DNI: </strong>' + empleados[i].dni + '</li><li><strong>Telefono: </strong>' + empleados[i].telefono + '</li><br>';
     }
 }
 
@@ -61,6 +62,7 @@ function printEmpleado() {
 function addMonitor(nombre, dni, telefono, actividades, sesionesSemana, sesionesSala) {
     var monitor = new Monitor(nombre, dni, telefono, actividades, sesionesSemana, sesionesSala);
     monitores.push(monitor);
+    alert('Has añadido un monitor!');
     // monitor.toString();
 }
 
@@ -74,7 +76,7 @@ function validateMonitor() {
     let sesionesSemana = document.forms['monitor']['sesionesSemana'].value;
     let sesionesSala = document.forms['monitor']['sesionesSala'].value;
     // EXPRESIONES REGULARES
-    let reNombre = /^[a-zA-Z]+$/;
+    let reNombre = /(?![\s.]+$)[a-zA-Z\s.]*/;
     let reDNI = /^[0-9]{8}[a-zA-Z]$/;
     let reTel = /^[0-9]{9}$/;
     // COMPROBACION DE LOS CAMPOS 

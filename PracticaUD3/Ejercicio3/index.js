@@ -1,25 +1,22 @@
-class UsuarioWeb {
-    constructor(user, password, dni,) {
-        this.user = user;
-        this.password = password;
-        this.dni = dni;
-    }
+function UsuarioWeb(user, password, dni) {
+    this.user = user;
+    this.password = password;
+    this.dni = dni;
 }
 
-class UsuarioAdministrador extends UsuarioWeb {
-    constructor(user, password, dni) {
-        super(user, password, dni);
-    }
-    altaEmpleados(){
+UsuarioAdministrador.prototype = new UsuarioWeb('a','b','c');
+UsuarioAdministrador.prototype = new UsuarioWeb('1','2','3');
 
-    }
-    crearTabla(){
-        
-    }
+function UsuarioAdministrador(altaEmpleado,tablaEmpleado){
+    this.altaEmpleado = altaEmpleado;
+    this.tablaEmpleado = tablaEmpleado;
 }
 
-class UsuarioCliente extends UsuarioWeb {
-    constructor(user, password, dni) {
-        super(user, password, dni);
-    }
+function UsuarioCliente(peso,altura,edad,sexo,imc,fcm){
+    this.peso = peso;
+    this.altura = altura;
+    this.edad = edad;
+    this.sexo = sexo;
+    this.imc = imc;
+    this.fcm = fcm;
 }

@@ -121,12 +121,13 @@ function modLlegada(codigo) {
       .textContent;
   let hora = prompt("Introduce hora");
   let min = prompt("Introduce minutos");
+  let comprobarDate = new Date(hora, min);
   for (let i = 0; i < vuelos.length; i++) {
     if (vuelos[i].codigo == codigoVuelo) {
-      vuelos[i].setLlegada(hora, min);
-      if (vuelos[i].llegada > vuelos[i].salida) {
+      if (comprobarDate > vuelos[i].salida) {
         alert("Error, la hora de llegada es mayor a la hora de salida");
       } else {
+        vuelos[i].setLlegada(hora, min);
         printVuelo();
       }
     }
@@ -139,9 +140,15 @@ function modSalida(codigo) {
       .previousSibling.textContent;
   let hora = prompt("Introduce hora");
   let min = prompt("Introduce minutos");
+  let comprobarDate = new Date(hora, min);
   for (let i = 0; i < vuelos.length; i++) {
     if (vuelos[i].codigo == codigoVuelo) {
-      vuelos[i].setSalida(hora, min);
+      if (vuelos[i].llegada > comprobarDate) {
+        alert("Error, la hora de llegada es mayor a la hora de salida");
+      } else {
+        vuelos[i].setSalida(hora, min);
+        printVuelo();
+      }
     }
   }
   printVuelo();
