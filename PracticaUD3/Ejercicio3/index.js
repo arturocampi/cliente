@@ -41,11 +41,18 @@ function createAdmin() {
         let admin = new UsuarioAdministrador(altaEmpleado, tablaEmpleado);
         admin.prototype = new UsuarioWeb(user, password, dni);
         adminUser.push(admin);
+        console.log(admin);
     }
 }
 
 function checkClient(user, dni) {
     let available = true;
+    for (let i = 0; i < adminUser.length; i++) {
+        if ((adminUser[i].prototype.user == user) || (adminUser[i].prototype.dni == dni)) {
+            available = false;
+            alert('El usuario o el DNI ya existe!');
+        }
+    }
     for (let i = 0; i < clientUser.length; i++) {
         if ((clientUser[i].prototype.user == user) || (clientUser[i].prototype.dni == dni)) {
             available = false;
@@ -78,11 +85,18 @@ function createCliente() {
         let client = new UsuarioCliente(peso, altura, edad, sexo, imc, fcm);
         client.prototype = new UsuarioWeb(user, password, dni);
         clientUser.push(client);
+        console.log(client);
     }
 }
 
 function checkAdmin(user, dni) {
     let available = true;
+    for (let i = 0; i < clientUser.length; i++) {
+        if ((clientUser[i].prototype.user == user) || (clientUser[i].prototype.dni == dni)) {
+            available = false;
+            alert('El usuario o el DNI ya existe!');
+        }
+    }
     for (let i = 0; i < adminUser.length; i++) {
         if ((adminUser[i].prototype.user == user) || (adminUser[i].prototype.dni == dni)) {
             available = false;
