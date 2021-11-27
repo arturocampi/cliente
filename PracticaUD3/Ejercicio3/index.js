@@ -41,7 +41,6 @@ function createAdmin() {
         let admin = new UsuarioAdministrador(altaEmpleado, tablaEmpleado);
         admin.prototype = new UsuarioWeb(user, password, dni);
         adminUser.push(admin);
-        console.log(admin);
     }
 }
 
@@ -85,7 +84,6 @@ function createCliente() {
         let client = new UsuarioCliente(peso, altura, edad, sexo, imc, fcm);
         client.prototype = new UsuarioWeb(user, password, dni);
         clientUser.push(client);
-        console.log(client);
     }
 }
 
