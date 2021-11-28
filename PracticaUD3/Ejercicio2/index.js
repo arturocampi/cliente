@@ -1,3 +1,4 @@
+// FUNCTION CONSTRUCTORA DEL AEROPUERTO
 class Aeropuerto {
   constructor(nombre, ciudad, numVuelos) {
     this.nombre = nombre;
@@ -11,6 +12,7 @@ class Aeropuerto {
 
 var aeropuertos = [];
 
+// FUNCTION CONSTRUCTORA DEL VUELO
 class Vuelo {
   constructor(codigo, horaLlegada, minLlegada, horaSalida, minSalida) {
     this.codigo = codigo;
@@ -41,6 +43,7 @@ class Vuelo {
 
 var vuelos = [];
 
+// FUNCTION PARA IMPRIMIR LA TABLA DE AEROPUERTOS
 function printAeropuerto() {
   var table = document.getElementById("tableAeropuerto");
   table.innerHTML = "<tr><th>Nombre</th><th>Ciudad</th><th>Número de vuelos</th><th>Cambiar número de vuelos</th><tr>";
@@ -50,6 +53,7 @@ function printAeropuerto() {
   }
 }
 
+// FUNCTION PARA AÑADIR UN AEROPUERTO
 function addAeropuerto() {
   let nombre = document.forms["formAeropuerto"]["nombre"].value;
   let ciudad = document.forms["formAeropuerto"]["ciudad"].value;
@@ -58,6 +62,7 @@ function addAeropuerto() {
   let nombreBoolean = true;
   let ciudadBoolean = true;
   let numVuelosBoolean = true;
+  // COMPRUEBA LOS PARAMETROS PASADOS
   if (nombre == "" || ciudad == "" || numVuelos == "") {
     empty = false;
     alert("Algún campo está vacío!!");
@@ -81,6 +86,7 @@ function addAeropuerto() {
   }
 }
 
+// FUNCTION PARA AÑADIR UN VUELO
 function addVuelo() {
   let codigo = document.forms["formVuelo"]["codigo"].value;
   let horaLlegada = document.forms["formVuelo"]["horaLlegada"].value;
@@ -90,6 +96,7 @@ function addVuelo() {
   var vuelo = new Vuelo(codigo, horaLlegada, minLlegada, horaSalida, minSalida);
   let empty = true;
   let greater = true;
+  // COMPRUEBA LOS PARAMETROS PASADOS
   if (codigo == "" || horaLlegada == "" || minLlegada == "" || horaSalida == "" || minSalida == "") {
     empty = false;
     alert("Algún campo está vacío!!");
@@ -105,6 +112,7 @@ function addVuelo() {
   }
 }
 
+// FUNCTION PARA IMPRIMIR LA TABLA DE VUELOS
 function printVuelo() {
   var table = document.getElementById("tableVuelo");
   table.innerHTML = "<tr><th>Código</th><th>Hora de llegada</th><th>Hora de salida</th><th>Cambiar hora de llegada</th><th>Cambiar hora de salida</th></tr>";
@@ -115,6 +123,7 @@ function printVuelo() {
   }
 }
 
+// FUNCTION PARA MODIFICAR LA HORA DE LLEGADA
 function modLlegada(codigo) {
   var codigoVuelo =
     codigo.parentNode.previousSibling.previousSibling.previousSibling
@@ -134,6 +143,7 @@ function modLlegada(codigo) {
   }
 }
 
+// FUNCTION PARA MODIFICAR LA HORA DE SALIDA
 function modSalida(codigo) {
   var codigoVuelo =
     codigo.parentNode.previousSibling.previousSibling.previousSibling
@@ -154,6 +164,7 @@ function modSalida(codigo) {
   printVuelo();
 }
 
+// FUNCTION PARA MODIFICAR LOS VUELOS DEL AEROPUERTO
 function modVuelos(boton) {
   let num = prompt("Introduce el número de vuelos");
   while (isNaN(num)) {

@@ -1,3 +1,4 @@
+// FUNCTION CONSTRUCTORA DEL COLEGIO
 function Colegio(nombre, numAulas, numAlumnos) {
     this.nombre = nombre;
     this.numAulas = numAulas;
@@ -5,9 +6,9 @@ function Colegio(nombre, numAulas, numAlumnos) {
     this.variacion = function modificarAlumnos(variacion) {
         this.numAlumnos = this.numAlumnos + variacion;
     }
-    //método para modificar el número de alumnos
 }
 
+// FUNCTION CONSTRUCTORA DEL ALUMNO
 function Alumno(dni, nombre, notaMedia) {
     this.dni = dni;
     this.nombre = nombre;
@@ -15,9 +16,9 @@ function Alumno(dni, nombre, notaMedia) {
     this.variacion = function modificarNotaMedia(variacion) {
         this.notaMedia = this.notaMedia + variacion;
     }
-    //método para modificar la nota media
 }
 
+// COMPRUEBA LOS PARAMETROS
 function comprobarColegio() {
     var nombre = document.forms['colegio']['nombre'].value;
     var numAulas = document.forms['colegio']['numAulas'].value;
@@ -37,12 +38,14 @@ function comprobarColegio() {
     }
 }
 
+// FUNCIÓN QUE CREA EL COLEGIO EN LA TABLA
 function addColegio(colegio) {
     var tabla = document.getElementById('tableColegios');
     var cadenaBoton = "<input type='button' value ='Variar Alumnos' id='boton' onclick='modificar(this)'>";
     tabla.innerHTML += '<tr><td>' + colegio.nombre + '</td><td>' + colegio.numAulas + '</td><td>' + colegio.numAlumnos + '</td><td>' + cadenaBoton + '</td></tr>';
 }
 
+// COMPRUEBA LOS PARAMETROS
 function comprobarAlumno() {
     var dni = document.forms['alumno']['dni'].value;
     var nombre = document.forms['alumno']['nombre'].value;
@@ -72,7 +75,7 @@ function addAlumno(alumno) {
     tabla.innerHTML += '<tr><td>' + alumno.dni + '</td><td>' + alumno.nombre + '</td><td>' + alumno.notaMedia + '</td><td>' + cadenaBoton + '</td></tr>';
 }
 
-// MODIFICA EL PARAMETRO PASADO
+// MODIFICAR EL PARAMETRO PASADO
 function modificar(numero) {
     let num = prompt('Introduce el número de alumnos');
     while (isNaN(num)) {

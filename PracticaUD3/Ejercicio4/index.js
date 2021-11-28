@@ -44,12 +44,14 @@ function validateEmpleado() {
     addEmpleado(nombre, dni, telefono);
 }
 
+// FUNCTION PARA AÑADIR EMPLEADOS
 function addEmpleado(nombre, dni, telefono) {
     var empleado = new Empleado(nombre, dni, telefono);
     empleados.push(empleado);
     alert('Has añadido un empleado!');
 }
 
+// FUNCTION PARA IMPRIMIR LA TABLA DE EMPLEADOS
 function printEmpleado() {
     let tablaEmpleado = document.getElementById('empleados');
     tablaEmpleado.innerHTML = '';
@@ -101,16 +103,11 @@ function validateMonitor() {
     addMonitor(nombre, dni, telefono, actividades, sesionesSemana, sesionesSala);
 }
 
+// FUNCTION PARA IMPRIMIR LA TABLA DE MONITORES
 function printMonitor() {
     let tablaMonitor = document.getElementById('monitores');
     tablaMonitor.innerHTML = '';
     for (let i = 0; i < monitores.length; i++) {
         tablaMonitor.innerHTML += '<li><strong>Nombre: </strong>' + monitores[i].nombre + '</li><li><strong>DNI: </strong>' + monitores[i].dni + '</li><li><strong>Telefono: </strong>' + monitores[i].telefono + '</li><li><strong>Actividades: </strong>' + monitores[i].actividades + '</li><li><strong>Sesiones Semanales: </strong>' + monitores[i].sesionesSemana + '</li><li><strong>Sesiones en sala: </strong>' + monitores[i].sesionesSala + '</li><br>';
     }
-}
-
-// MÉTODO TOSTRING
-Monitor.prototype.toString = function monitorToString() {
-    var lista = document.getElementById('list');
-    lista.innerHTML += '<li><strong>Nombre: </strong>' + this.nombre + '</li><li><strong>DNI: </strong>' + this.dni + '</li><li><strong>Telefono: </strong>' + this.telefono + '</li><li><strong>Actividades: </strong>' + this.actividades + '</li><li><strong>Sesiones Semanales: </strong>' + this.sesionesSemana + '</li><li><strong>Sesiones en sala: </strong>' + this.sesionesSala + '</li><br>';
 }
