@@ -1,8 +1,10 @@
 // FUNCTION CONSTRUCTORA DEL USUARIO WEB
-function UsuarioWeb(user, password, dni) {
-    this.user = user;
+function UsuarioWeb(login, password, nombre, dni, role) {
+    this.login = login;
     this.password = password;
+    this.nombre = nombre;
     this.dni = dni;
+    this.role = role;
 }
 
 // FUNCTION CONSTRUCTORA DEL USUARIO ADMINISTRADOR
@@ -27,23 +29,25 @@ var clientUser = [];
 
 // FUNCTION PARA CREAR USUARIO ADMINISTRADOR
 function createAdmin() {
-    let user = prompt('Introduce el username:');
+    let login = prompt('Introduce el login:');
     let password = prompt('Introduce un password:');
+    let nombre = prompt('Introduce un nombre:');
     let dni = prompt('Introduce un DNI:');
+    let role = prompt('Introduce un role:');
     let altaEmpleado = prompt('Introduce un altaEmpleado:');
     let tablaEmpleado = prompt('Introduce una tablaEmpleado:');
     let reNombre = /^[a-zA-Z]+$/;
     let reDNI = /^[0-9]{8}[a-zA-Z]$/;
     // COMPROBACION DE LOS CAMPOS 
-    while (!reNombre.test(user)) {
+    while (!reNombre.test(login)) {
         user = prompt('Username incorrecto, introduce un username');
     }
     while (!reDNI.test(dni)) {
         dni = prompt('Dni incorrecto, introduce un dni');
     }
     // COMRPRUEBA QUE EL USUARIO ESTÉ DISPONIBLE, SI LO ESTÁ CREAR EL USUARIO
-    if (check(user, dni)) {
-        UsuarioAdministrador.prototype = new UsuarioWeb(user, password, dni);
+    if (check(login, dni)) {
+        UsuarioAdministrador.prototype = new UsuarioWeb(login, password, nombre, dni, role);
         let admin = new UsuarioAdministrador(altaEmpleado, tablaEmpleado);
         adminUser.push(admin);
     } else {
@@ -52,15 +56,15 @@ function createAdmin() {
 }
 
 // FUNCTION PARA COMPROBAR SI EL USUARIO Y DNI ESTÁN YA USADOS
-function check(user, dni) {
+function check(login, dni) {
     let available = true;
     for (let i = 0; i < adminUser.length; i++) {
-        if ((adminUser[i].user == user) || (adminUser[i].dni == dni)) {
+        if ((adminUser[i].login == login) || (adminUser[i].dni == dni)) {
             available = false;
         }
     }
     for (let i = 0; i < clientUser.length; i++) {
-        if ((clientUser[i].user == user) || (clientUser[i].dni == dni)) {
+        if ((clientUser[i].login == login) || (clientUser[i].dni == dni)) {
             available = false;
         }
     }
@@ -69,9 +73,11 @@ function check(user, dni) {
 
 // FUNCTION PARA CREAR USUARIO CLIENTE
 function createCliente() {
-    let user = prompt('Introduce el username:');
+    let login = prompt('Introduce el login:');
     let password = prompt('Introduce un password:');
+    let nombre = prompt('Introduce un nombre:');
     let dni = prompt('Introduce un DNI:');
+    let role = prompt('Introduce un role:');
     let peso = prompt('Introduce tu peso');
     let altura = prompt('Introdu tu altura:');
     let edad = prompt('Introduce tu edad:');
@@ -81,16 +87,16 @@ function createCliente() {
     // COMPROBACION DE LOS CAMPOS 
     let reNombre = /^[a-zA-Z]+$/;
     let reDNI = /^[0-9]{8}[a-zA-Z]$/;
-    while (!reNombre.test(user)) {
+    while (!reNombre.test(login)) {
         user = prompt('Username incorrecto, introduce un username');
     }
     while (!reDNI.test(dni)) {
         dni = prompt('Dni incorrecto, introduce un dni');
     }
     // COMRPRUEBA QUE EL USUARIO ESTÉ DISPONIBLE, SI LO ESTÁ CREAR EL USUARIO
-    if (check(user, dni)) {
-        let client = new UsuarioCliente(peso, altura, edad, sexo, imc, fcm);
-        client.prototype = new UsuarioWeb(user, password, dni);
+    if (check(login, dni)) {
+        UsuarioCliente.prototype = new UsuarioWeb(login, password, nombre, dni, role);
+        var client = new UsuarioWeb(peso, altura, edad, sexo, imc, fcm);
         clientUser.push(client);
     } else {
         alert('El usuario o el DNI ya existe!');
@@ -99,23 +105,23 @@ function createCliente() {
 
 // FUNCTION PARA INICIAR SESION
 function auth() {
-    let user = document.forms['formLogin']['user'].value;
+    let login = document.forms['formLogin']['login'].value;
     let password = document.forms['formLogin']['password'].value;
-    let login = false;
+    let state = false;
     for (let i = 0; i < adminUser.length; i++) {
-        if ((adminUser[i].prototype.user == user) && (adminUser[i].prototype.password == password)) {
-            login = true;
+        if ((adminUser[i].login == login) && (adminUser[i].password == password)) {
+            state = true;
             alert('Has iniciado sesión como Admin. Bienvenido ' + user + '!');
         }
     }
     for (let i = 0; i < clientUser.length; i++) {
-        if ((clientUser[i].prototype.user == user) && (clientUser[i].prototype.password == password)) {
-            login = true;
+        if ((clientUser[i].login == login) && (clientUser[i].password == password)) {
+            state = true;
             alert('Has iniciado sesión como Cliente. Bienvenido ' + user + '!');
         }
     }
     // SI LAS CREDENCIALES SON INCORRECTAS DEVUELVE ERROR
-    if (!login) {
+    if (!state) {
         alert('Credenciales incorrectas!');
     }
 }
