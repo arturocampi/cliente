@@ -111,13 +111,13 @@ function auth() {
     for (let i = 0; i < adminUser.length; i++) {
         if ((adminUser[i].login == login) && (adminUser[i].password == password)) {
             state = true;
-            alert('Has iniciado sesión como Admin. Bienvenido ' + user + '!');
+            alert('Has iniciado sesión como Admin. Bienvenido ' + login + '!');
         }
     }
     for (let i = 0; i < clientUser.length; i++) {
         if ((clientUser[i].login == login) && (clientUser[i].password == password)) {
             state = true;
-            alert('Has iniciado sesión como Cliente. Bienvenido ' + user + '!');
+            alert('Has iniciado sesión como Cliente. Bienvenido ' + login + '!');
         }
     }
     // SI LAS CREDENCIALES SON INCORRECTAS DEVUELVE ERROR
