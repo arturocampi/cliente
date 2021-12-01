@@ -42,9 +42,9 @@ function createAdmin() {
         dni = prompt('Dni incorrecto, introduce un dni');
     }
     // COMRPRUEBA QUE EL USUARIO ESTÉ DISPONIBLE, SI LO ESTÁ CREAR EL USUARIO
-    if (checkClient(user, dni)) {
+    if (check(user, dni)) {
+        UsuarioAdministrador.prototype = new UsuarioWeb(user, password, dni);
         let admin = new UsuarioAdministrador(altaEmpleado, tablaEmpleado);
-        admin.prototype = new UsuarioWeb(user, password, dni);
         adminUser.push(admin);
     } else {
         alert('El usuario o el DNI ya existe!');
@@ -52,15 +52,15 @@ function createAdmin() {
 }
 
 // FUNCTION PARA COMPROBAR SI EL USUARIO Y DNI ESTÁN YA USADOS
-function checkClient(user, dni) {
+function check(user, dni) {
     let available = true;
     for (let i = 0; i < adminUser.length; i++) {
-        if ((adminUser[i].prototype.user == user) || (adminUser[i].prototype.dni == dni)) {
+        if ((adminUser[i].user == user) || (adminUser[i].dni == dni)) {
             available = false;
         }
     }
     for (let i = 0; i < clientUser.length; i++) {
-        if ((clientUser[i].prototype.user == user) || (clientUser[i].prototype.dni == dni)) {
+        if ((clientUser[i].user == user) || (clientUser[i].dni == dni)) {
             available = false;
         }
     }
@@ -88,29 +88,13 @@ function createCliente() {
         dni = prompt('Dni incorrecto, introduce un dni');
     }
     // COMRPRUEBA QUE EL USUARIO ESTÉ DISPONIBLE, SI LO ESTÁ CREAR EL USUARIO
-    if (checkAdmin(user, dni)) {
+    if (check(user, dni)) {
         let client = new UsuarioCliente(peso, altura, edad, sexo, imc, fcm);
         client.prototype = new UsuarioWeb(user, password, dni);
         clientUser.push(client);
     } else {
         alert('El usuario o el DNI ya existe!');
     }
-}
-
-// FUNCTION PARA COMPROBAR SI EL USUARIO Y DNI ESTÁN YA USADOS
-function checkAdmin(user, dni) {
-    let available = true;
-    for (let i = 0; i < clientUser.length; i++) {
-        if ((clientUser[i].prototype.user == user) || (clientUser[i].prototype.dni == dni)) {
-            available = false;
-        }
-    }
-    for (let i = 0; i < adminUser.length; i++) {
-        if ((adminUser[i].prototype.user == user) || (adminUser[i].prototype.dni == dni)) {
-            available = false;
-        }
-    }
-    return available;
 }
 
 // FUNCTION PARA INICIAR SESION
