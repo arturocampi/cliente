@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Repaso</title>
+</head>
+
+<body>
+    <h1 id="titulo">Borrar elemento</h1>
+    <script>
+        // Creación de nodos con herramientas de DOM
+        var p = document.createElement("p");
+        var content = document.createTextNode("Hola mundo!");
+        p.appendChild(content);
+        document.body.appendChild(p);
+
+        // Eliminación de nodos
+        var titulo = document.getElementById("titulo");
+        titulo.parentNode.removeChild(titulo);
+    </script>
+</body>
+</html>
